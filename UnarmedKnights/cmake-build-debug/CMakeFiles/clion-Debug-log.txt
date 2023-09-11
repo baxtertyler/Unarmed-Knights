@@ -1,0 +1,22 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -G Ninja -S /Users/tylerbaxter/Personal/C++_Projects/UnarmedKnights -B /Users/tylerbaxter/Personal/C++_Projects/UnarmedKnights/cmake-build-debug
+CMake Error: Could not find cmake module file: CMakeDetermineKnightsCompiler.cmake
+CMake Error: Error required internal CMake variable not set, cmake may not be built correctly.
+Missing variable is:
+CMAKE_Knights_COMPILER_ENV_VAR
+CMake Error: Error required internal CMake variable not set, cmake may not be built correctly.
+Missing variable is:
+CMAKE_Knights_COMPILER
+CMake Error: Could not find cmake module file: /Users/tylerbaxter/Personal/C++_Projects/UnarmedKnights/cmake-build-debug/CMakeFiles/3.25.2/CMakeKnightsCompiler.cmake
+CMake Error at CMakeLists.txt:2 (project):
+  No CMAKE_Knights_COMPILER could be found.
+
+  Tell CMake where to find the compiler by setting the CMake cache entry
+  CMAKE_Knights_COMPILER to the full path to the compiler, or to the compiler
+  name if it is in the PATH.
+
+
+CMake Error: Could not find cmake module file: CMakeKnightsInformation.cmake
+CMake Error: CMAKE_Knights_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
+See also "/Users/tylerbaxter/Personal/C++_Projects/UnarmedKnights/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/tylerbaxter/Personal/C++_Projects/UnarmedKnights/cmake-build-debug/CMakeFiles/CMakeError.log".
