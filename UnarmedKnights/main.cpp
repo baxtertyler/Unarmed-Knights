@@ -1,6 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
-#include <iostream>
 #include <random>
 #include "Player.h"
 #include "Platform.h"
@@ -18,7 +17,6 @@ int main()
             "UNARMED KNIGHTS",
             sf::Style::Close | sf::Style::Titlebar);
     sf::View view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(VIEW_WIDTH, VIEW_HEIGHT));
-
 
     // text on screen
     sf::Text text;
@@ -63,6 +61,7 @@ int main()
     bool ss = true;
     bool over_start = false;
     bool end_screen = false;
+    std::default_random_engine randomizer;
 
     // sprites
     Player player_1(&player_texture_1,
@@ -168,22 +167,21 @@ int main()
             window.display();
         }
 
-        srand(time(nullptr));
-        while (enemies.size() < num_enemies) {
+        while (enemies.size() < num_enemies and not ss) {
             sf::Vector2f displacement;
-            int wall = rand() % 4;
+            int wall = randomizer() % 4;
             if (wall == 0) {
-                displacement.x = (rand() % (int)(VIEW_WIDTH)) - VIEW_WIDTH/2;
+                displacement.x = (randomizer() % (int)(VIEW_WIDTH)) - VIEW_WIDTH/2;
                 displacement.y = (int)(VIEW_HEIGHT / 2);
             } else if (wall == 1) {
-                displacement.x = (rand() % (int)(VIEW_WIDTH)) - VIEW_WIDTH/2;
+                displacement.x = (randomizer() % (int)(VIEW_WIDTH)) - VIEW_WIDTH/2;
                 displacement.y = -(int)(VIEW_HEIGHT / 2);
             } else if (wall == 2) {
                 displacement.x = (int)(VIEW_WIDTH / 2);
-                displacement.y = (rand() % (int)(VIEW_HEIGHT)) - VIEW_HEIGHT/2;
+                displacement.y = (randomizer() % (int)(VIEW_HEIGHT)) - VIEW_HEIGHT/2;
             } else {
                 displacement.x = -(int)(VIEW_WIDTH / 2);
-                displacement.y = (rand() % (int)(VIEW_HEIGHT)) - VIEW_HEIGHT/2;
+                displacement.y = (randomizer() % (int)(VIEW_HEIGHT)) - VIEW_HEIGHT/2;
             }
             if (wall <= 1)
             {
